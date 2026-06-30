@@ -52,41 +52,13 @@ Project: https://github.com/besley/slickflow</PackageReleaseNotes>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Slickflow.AI\Slickflow.AI.csproj">
-      <PrivateAssets>All</PrivateAssets>
-      <IncludeAssets>All</IncludeAssets>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\Slickflow.Data\Slickflow.Data.csproj">
-      <PrivateAssets>All</PrivateAssets>
-      <IncludeAssets>All</IncludeAssets>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\Slickflow.Module.Form\Slickflow.Module.Form.csproj">
-      <PrivateAssets>All</PrivateAssets>
-      <IncludeAssets>All</IncludeAssets>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\Slickflow.Module.Localize\Slickflow.Module.Localize.csproj">
-      <PrivateAssets>All</PrivateAssets>
-      <IncludeAssets>All</IncludeAssets>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\Slickflow.Module.Resource\Slickflow.Module.Resource.csproj">
-      <PrivateAssets>All</PrivateAssets>
-      <IncludeAssets>All</IncludeAssets>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\Slickflow.Module\Slickflow.Module.csproj">
-      <PrivateAssets>All</PrivateAssets>
-      <IncludeAssets>All</IncludeAssets>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\Slickflow.WebUtility\Slickflow.WebUtility.csproj">
-      <PrivateAssets>All</PrivateAssets>
-      <IncludeAssets>All</IncludeAssets>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
+    <ProjectReference Include="..\Slickflow.AI\Slickflow.AI.csproj" />
+    <ProjectReference Include="..\Slickflow.Data\Slickflow.Data.csproj" />
+    <ProjectReference Include="..\Slickflow.Module.Form\Slickflow.Module.Form.csproj" />
+    <ProjectReference Include="..\Slickflow.Module.Localize\Slickflow.Module.Localize.csproj" />
+    <ProjectReference Include="..\Slickflow.Module.Resource\Slickflow.Module.Resource.csproj" />
+    <ProjectReference Include="..\Slickflow.Module\Slickflow.Module.csproj" />
+    <ProjectReference Include="..\Slickflow.WebUtility\Slickflow.WebUtility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

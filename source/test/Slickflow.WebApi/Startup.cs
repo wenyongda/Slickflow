@@ -20,8 +20,7 @@ namespace Slickflow.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
-            services.AddMvc(o => o.EnableEndpointRouting = false)
+            services.AddControllers()
                 .AddJsonOptions(o =>
                 {
                     o.JsonSerializerOptions.PropertyNamingPolicy = null;
@@ -37,6 +36,17 @@ namespace Slickflow.WebApi
 
             //set default language
             Slickflow.Module.Localize.LocalizeHelper.SetDefault();
+
+            // Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "Slickflow WebApi Test",
+                    Version = "v1",
+                    Description = "Slickflow BPMN2 workflow engine test API"
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,27 +59,26 @@ namespace Slickflow.WebApi
 
             app.UseHttpsRedirection();
 
+            // Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Slickflow WebApi Test v1");
+                c.RoutePrefix = "swagger";
+            });
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "defaultApi",
+                    pattern: "api/{controller}/{action}/{id?}");
             });
 
             app.UseStaticFiles();
-
-            app.UseMvc(route =>
-            {
-                route.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-
-                route.MapRoute(
-                    name: "defaultApi",
-                    template: "api/{controller}/{action}/{id?}");
-            });
         }
     }
 }
