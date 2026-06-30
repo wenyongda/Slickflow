@@ -201,6 +201,10 @@ namespace Slickflow.Data
             _connectionString = databaseType == DatabaseTypeEnum.PGSQL
                 ? InjectPgsqlPoolParams(strConn)
                 : strConn;
+
+            // Ensure SqlDialect and Dapper naming convention are set
+            // 确保 SqlDialect 和 Dapper 命名规则已设置
+            SetDBType(databaseType);
         }
 
         /// <summary>

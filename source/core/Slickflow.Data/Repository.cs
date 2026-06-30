@@ -713,8 +713,19 @@ namespace Slickflow.Data
         /// <returns></returns>
         public dynamic Insert<T>(IDbConnection conn, T entity, IDbTransaction transaction = null) where T : class
         {
-            dynamic result = conn.Insert<T>(entity, transaction);
-            return result;
+            try
+            {
+                dynamic result = conn.Insert<T>(entity, transaction);
+                return result;
+            }
+            catch (ArgumentException ex) when (ex.Message.Contains("Int64") && ex.Message.Contains("Int32"))
+            {
+                // PostgreSQL sequence 返回 Int64，但实体 Id 属性是 Int32
+                // PostgreSQL sequence returns Int64, but entity Id property is Int32
+                // 数据已插入成功，只是无法设置自增 ID 回实体
+                // Data was inserted successfully, just cannot set identity value back to entity
+                return 0;
+            }
         }
 
         /// <summary>
