@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Dapper;
 using DapperExtensions;
 using DapperExtensions.Mapper;
+using DapperExtensions.Predicate;
 using DapperExtensions.Sql;
 
 namespace Slickflow.Data

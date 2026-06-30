@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using DapperExtensions;
+using DapperExtensions.Predicate;
 using System.Data.SqlClient;
 using DapperExtensions.Sql;
 
@@ -837,14 +838,14 @@ namespace Slickflow.Data
                 foreach (var propertyInfo in props)
                 {
                     bulkCopy.ColumnMappings.Add(propertyInfo.Name, propertyInfo.Name);
-                    table.Columns.Add(propertyInfo.Name, Nullable.GetUnderlyingType(propertyInfo.PropertyInfo.PropertyType) ?? propertyInfo.PropertyInfo.PropertyType);
+                    table.Columns.Add(propertyInfo.Name, Nullable.GetUnderlyingType(propertyInfo.MemberType) ?? propertyInfo.MemberType);
                 }
                 var values = new object[props.Count()];
                 foreach (var itemm in entityList)
                 {
                     for (var i = 0; i < values.Length; i++)
                     {
-                        values[i] = props[i].PropertyInfo.GetValue(itemm, null);
+                        values[i] = props[i].GetValue(itemm);
                     }
                     table.Rows.Add(values);
                 }

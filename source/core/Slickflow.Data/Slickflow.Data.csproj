@@ -27,10 +27,9 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="DapperExtensions.New" Version="1.7.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Dapper\Dapper.csproj" />
-  </ItemGroup>
 
 </Project>

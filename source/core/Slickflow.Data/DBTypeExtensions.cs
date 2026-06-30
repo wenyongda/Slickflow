@@ -163,7 +163,15 @@ namespace Slickflow.Data
             {
                 //KingBase 数据库
                 //KingBase Database
-                DapperExtensions.DapperExtensions.SqlDialect = new DapperExtensions.Sql.KingbaseSqlDialect();
+                DapperExtensions.DapperExtensions.SqlDialect = new Slickflow.Data.Sql.Dialects.KingbaseSqlDialect();
+            }
+
+            // 注册自定义 Mapper，使 [Table] 属性映射生效
+            // Register custom mapper so [Table] attribute mapping works at runtime
+            if (DapperExtensions.DapperExtensions.SqlDialect != null)
+            {
+                Sql.Mappers.CustomAutoClassMapper<object>
+                    .ConfigureCustomMapper(DapperExtensions.DapperExtensions.SqlDialect);
             }
         }
         #endregion

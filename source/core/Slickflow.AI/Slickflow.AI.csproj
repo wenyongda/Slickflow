@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dapper\Dapper.csproj" />
     <ProjectReference Include="..\Slickflow.Data\Slickflow.Data.csproj" />
     <ProjectReference Include="..\Slickflow.WebUtility\Slickflow.WebUtility.csproj" />
   </ItemGroup>
